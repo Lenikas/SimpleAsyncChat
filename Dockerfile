@@ -20,12 +20,14 @@ RUN apt-get update \
         make \
  && rm -rf /var/lib/apt/lists/*
 
-# copy your project 
+COPY pyproject.toml poetry.lock Makefile start.py /code/
+COPY ./async_chat /code/async_chat
 
 RUN pip install --no-compile --upgrade pip \
  && pip install --no-compile poetry \
  && poetry config virtualenvs.create false \
  && poetry install --no-dev --no-interaction --no-ansi \
- && pip uninstall --yes poetry 
+ && pip uninstall --yes poetry
 
-# run it
+ENTRYPOINT [""]
+CMD ["make", "up"]

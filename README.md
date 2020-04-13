@@ -1,7 +1,7 @@
 # Async Chat
 
 ### Description:
-    ...
+    Автор: Сагалов Леонид
 
 ### Create venv:
     make venv
