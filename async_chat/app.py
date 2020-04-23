@@ -10,7 +10,6 @@ app = FastAPI()
 
 rd = redis.Redis()
 rd.lpush('messages', '')
-rd.flushall()
 
 templates = Jinja2Templates(directory='templates')
 
