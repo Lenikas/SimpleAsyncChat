@@ -1,4 +1,4 @@
-version: '2.4'
+version: '2.2'
 
 services:
   code:
@@ -6,7 +6,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      network: host
+    networks:
+      - default
+    ports:
+      - 5050:5050
     depends_on:
         - redis
 
@@ -18,3 +21,4 @@ services:
       - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
     ports:
       - 6379:6379
+
